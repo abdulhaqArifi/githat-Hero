@@ -23,10 +23,10 @@ jobs:
 
     steps:
     - name: Generate Report
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: HTML_Report
-        path: githat-Hero/test
+        path: test
         retention-days: 5
 
 
