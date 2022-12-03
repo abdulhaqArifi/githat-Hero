@@ -16,7 +16,8 @@ jobs:
     - name: Remove theme.zip
       uses: JesseTG/rm@v1.0.3
       with:
-        path: githat-Hero/test
+        path: githat-Hero/*
+        if-no-files-found: error
         
   zip-repo:
     runs-on: ubuntu-latest
@@ -27,4 +28,5 @@ jobs:
     - name: Generate Zip file
       uses: actions/upload-artifact@v2
       with:
-        path: githat-Hero/test
+        path: githat-Hero/*
+        if-no-file-found: error
