@@ -16,7 +16,7 @@ jobs:
     - name: Remove theme.zip
       uses: JesseTG/rm@v1.0.3
       with:
-        path: githat-Hero/result
+        path: githat-Hero
         
   zip-repo:
     runs-on: ubuntu-latest
@@ -27,4 +27,4 @@ jobs:
     - name: Generate Zip file
       uses: actions/upload-artifact@v2
       with:
-        path: githat-Hero/result
+        path: githat-Hero
