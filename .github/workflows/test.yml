@@ -18,7 +18,7 @@ jobs:
       - name: Remove theme.zip
         uses: JesseTG/rm@v1.0.3
         with:
-         path: theme.zip
+         path: hello.py
 
   GoodBye:
     runs-on: ubuntu-latest
