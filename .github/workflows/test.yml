@@ -32,7 +32,7 @@ jobs:
         run: |
           cd ../..
           pwd
-          zip –u filename.zip github-Hero
+          zip –r theme.zip github-Hero
           
  
      
