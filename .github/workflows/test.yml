@@ -22,11 +22,8 @@ jobs:
     needs: [deploy]
 
     steps:
-    - name: Generate Report
-      uses: actions/upload-artifact@v3
+    - uses: montudor/action-zip@v1
       with:
-        name: HTML_Report
-        path: test
-        retention-days: 5
+       args: zip -qq -r dir.zip test
 
 
