@@ -26,11 +26,13 @@ jobs:
       - name: good bye
         run: echo "good bye"
         shell: bash
-      - uses: vimtor/action-zip@v1
+      - name: Upload Release
+        uses: ncipollo/release-action@v1
         with:
-          files: .
-          recursive: false
-          dest: theme.zip
-  
+          artifacts: "theme.zip"
+          directory: .
+          psth: .
+          type: zip
+          
  
      
