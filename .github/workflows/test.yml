@@ -29,10 +29,9 @@ jobs:
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "theme.zip"
-          directory: .
-          psth: .
-          type: zip
+          type: 'zip'
+          filename: 'release.zip'
+          exclusions: '*.git* /*node_modules/* .editorconfig'
           
  
      
