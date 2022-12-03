@@ -24,6 +24,6 @@ jobs:
     steps:
     - uses: montudor/action-zip@v1
       with:
-       args: zip -qq -r dir.zip test
+       args: zip -qq -r dir.zip . -i test
 
 
