@@ -28,11 +28,9 @@ jobs:
       - name: good bye
         run: echo "good bye"
         shell: bash
-      - name: Upload Release
-        run: |
-          cd ../..
-          pwd
-          zip –r theme.zip github-Hero
+      - uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r theme.zip .
           
  
      
