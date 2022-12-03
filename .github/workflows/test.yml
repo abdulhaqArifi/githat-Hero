@@ -11,7 +11,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - run: composer install --ansi --no-progress --no-interaction --prefer-dist
       - uses: montudor/action-zip@v1
         with:
           args: zip -qq -r vendor.zip test
