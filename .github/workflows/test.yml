@@ -5,7 +5,7 @@ on:
     branches:
     - main
 env:
-  build_directory: ${{github.workspace}}/BUILD
+  build_directory: ${{github.workspace}}
   release_name: build_${{github.run_number}}
 
 jobs:
