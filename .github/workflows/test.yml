@@ -26,13 +26,11 @@ jobs:
       - name: good bye
         run: echo "good bye"
         shell: bash
-      - uses: montudor/action-zip@v1
+      - uses: vimtor/action-zip@v1
         with:
-          args: zip -qq -r theme.zip ./ -i  .
-      - uses: actions/upload-artifact@v3
-        with:
-          name: Themes
-          path: theme.zip
+          files: .
+          recursive: false
+          dest: theme.zip
   
  
      
