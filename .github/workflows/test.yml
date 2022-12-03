@@ -12,9 +12,7 @@ jobs:
     steps:
       - name: run commands
         run: |
-            echo "::group::My title"
-            echo "Inside group"
-            echo "::endgroup::
+          pwd
       
     
       
