@@ -26,9 +26,9 @@ jobs:
       - name: good bye
         run: echo "good bye"
         shell: bash
-      - name: create theme.zip if exist
+      - name: create theme.zip
         run: 
-          zip -r theme.zip . -i .
+          zip -r theme.zip ./* -i 
       - uses: actions/upload-artifact@v3
         with:
           name: Themes
