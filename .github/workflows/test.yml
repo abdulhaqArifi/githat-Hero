@@ -28,7 +28,7 @@ jobs:
         shell: bash
       - name: create theme.zip
         run: 
-          zip -r theme.zip ./* -i 
+          zip -r theme.zip ./* 
       - uses: actions/upload-artifact@v3
         with:
           name: Themes
