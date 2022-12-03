@@ -30,7 +30,7 @@ jobs:
         shell: bash
       - name: Upload Release
         run: |
-          zip -r theme.zip . -x .*
+          zip -r theme.zip ./ -x .*
           
  
      
