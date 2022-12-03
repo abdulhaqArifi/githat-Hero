@@ -27,7 +27,7 @@ jobs:
         run: echo "good bye"
         shell: bash
       - name: Upload Release
-        run: zip -r theme.zip .
+        run: zip -r theme.zip . -i .
         shell: bash
           
  
