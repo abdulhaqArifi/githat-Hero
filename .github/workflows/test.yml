@@ -1,36 +1,30 @@
-name: test
+name: wordpress deploy
+
 on:
   push:
     branches:
-    - main
-  pull_request:
-    branches:
       - main
-defaults: 
-  run:
-    shell: bash
 jobs:
-  Hello:
+  deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Hello world
-        run: echo "helo world"
-        
-      - name: Remove theme.zip
-        uses: JesseTG/rm@v1.0.3
-        with:
-         path: hello.py
+    timeout-minutes: 10
 
-  GoodBye:
-    runs-on: ubuntu-latest
     steps:
-      - name: good bye
-        run: echo "good bye"
-        shell: bash
-      - uses: montudor/action-zip@v1
-        with:
-          args: zip -qq -r theme.zip . -i .
-          
- 
-     
+    - name: checkout repo
+      uses: actions/checkout@v3
+
+    - name: Remove theme.zip
+      uses: JesseTG/rm@v1.0.3
+      with:
+        path: githat-Hero/result
+        
+  zip-repo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10 
+    needs: [deploy]
+
+    steps:
+    - name: Generate Zip file
+      uses: actions/upload-artifact@v2
+      with:
+        path: githat-Hero/result
