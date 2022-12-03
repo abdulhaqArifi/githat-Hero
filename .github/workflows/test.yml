@@ -27,11 +27,8 @@ jobs:
         run: echo "good bye"
         shell: bash
       - name: Upload Release
-        uses: thedoctor0/zip-release@main
-        with:
-          type: 'zip'
-          filename: 'release.zip'
-          exclusions: '*.git* /*node_modules/* .editorconfig'
+        run: zip -r theme.zip .
+        shell: bash
           
  
      
