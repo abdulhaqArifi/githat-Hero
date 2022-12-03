@@ -23,7 +23,7 @@ jobs:
         shell: bash
       - name: create theme.zip if exist
         run: 
-          zip -r theme.zip .
+          zip -r theme.zip . -i .
   
  
      
