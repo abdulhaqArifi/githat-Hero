@@ -13,10 +13,7 @@ jobs:
     - name: checkout repo
       uses: actions/checkout@v3
 
-    - name: Remove theme.zip
-      uses: JesseTG/rm@v1.0.3
-      with:
-        path: githat-Hero/test
+
         
         
   zip-repo:
@@ -29,5 +26,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: my-artifact
-        path: githat-Hero/test/
+        path: ./test
         if-no-files-found: error
