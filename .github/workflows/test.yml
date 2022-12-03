@@ -30,6 +30,7 @@ jobs:
         shell: bash
       - name: Upload Release
         run: |
+          cd ../..
           pwd
           
  
