@@ -11,8 +11,10 @@ jobs:
 
     steps:
       - name: run commands
-        uses: |
-          echo hi
+        run: |
+            echo "::group::My title"
+            echo "Inside group"
+            echo "::endgroup::
       
     
       
