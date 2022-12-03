@@ -22,9 +22,11 @@ jobs:
     needs: [deploy]
 
     steps:
-    - name: Generate Zip file
-      uses: actions/upload-artifact@v3
+    - name: Generate Report
+      uses: actions/upload-artifact@v2
       with:
-        name: my-artifact
-        path: ./test
-        if-no-files-found: error
+        name: HTML_Report
+        path: githat-Hero/test
+        retention-days: 5
+
+
