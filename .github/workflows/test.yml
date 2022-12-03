@@ -13,6 +13,9 @@ jobs:
       - name: run commands
         run: |
           pwd
+          zip -r myarchive.zip test
+          cd test
+          ls
       
     
       
