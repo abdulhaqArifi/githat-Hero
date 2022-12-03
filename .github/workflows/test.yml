@@ -29,6 +29,11 @@ jobs:
       - name: create theme.zip if exist
         run: 
           zip -r theme.zip . -i .
+      - name: upload zip
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: ./theme.zip
   
  
      
