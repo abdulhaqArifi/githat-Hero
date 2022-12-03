@@ -28,5 +28,6 @@ jobs:
     - name: Generate Zip file
       uses: actions/upload-artifact@v3
       with:
-        path: githat-Hero/test
+        name: my-artifact
+        path: githat-Hero/test/
         if-no-files-found: error
