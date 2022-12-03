@@ -17,7 +17,7 @@ jobs:
       uses: JesseTG/rm@v1.0.3
       with:
         path: githat-Hero/*
-        if-no-files-found: error
+        
         
   zip-repo:
     runs-on: ubuntu-latest
@@ -29,4 +29,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         path: githat-Hero/*
-        if-no-file-found: error
+        if-no-files-found: error
