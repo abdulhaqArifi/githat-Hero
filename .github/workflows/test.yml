@@ -4,6 +4,9 @@ on:
   push:
     branches:
     - main
+env:
+  build_directory: ${{github.workspace}}/BUILD
+  release_name: build_${{github.run_number}}
 
 jobs:
   build:
@@ -13,16 +16,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Build plugin # Remove or modify this step as needed
-      run: |
-        composer install --no-dev
-        npm install
-        npm run build
-
-    - name: Generate zip
-      uses: 10up/action-wordpress-plugin-build-zip@stable
-      env:
-        SLUG: my-super-cool-plugin
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{env.release_name}}
+        path: ${{env.build_directory}}/redumper-*.zip
       
     
       
