@@ -20,7 +20,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: ${{env.release_name}}
-        path: ${{env.build_directory}}/redumper-*.zip
+        path: ${{env.build_directory}}/test.zip
       
     
       
