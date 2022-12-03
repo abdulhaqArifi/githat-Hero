@@ -15,7 +15,7 @@ jobs:
           pwd
           zip -r myarchive.zip . -i .
           cd test
-          ls
+          ls -a
       
     
       
