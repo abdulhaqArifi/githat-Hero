@@ -15,9 +15,8 @@ jobs:
     
     - name: Sync
       env:
-        dest: './myfile'
-      run: |
-        rsync  ./ ${{env.dest}}
+        dest: './myFile'
+      run: rsync  ./ ${{env.dest}}
 
       
     
