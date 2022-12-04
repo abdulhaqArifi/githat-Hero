@@ -17,10 +17,7 @@ jobs:
       env:
         dest: './myfile'
       run: |
-        rsync 
-          --exclude /.git/ \
-          --exclude /.github/ \
-          ./ ${{env.dest}}
+        rsync  ./ ${{env.dest}}
 
       
     
