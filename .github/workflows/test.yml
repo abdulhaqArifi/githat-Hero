@@ -1,26 +1,27 @@
-name: Build release zip
+name: WordPress deploy
 
 on:
   push:
     branches:
-    - main
-env:
-  build_directory: ${{github.workspace}}
-  release_name: build_${{github.run_number}}
+      - main
 
 jobs:
-  build:
-    name: Build release zip
+  deploy:
     runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
 
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: ${{env.release_name}}
-        path: ${{env.build_directory}}/test.zip
+    steps:
+    - uses: actions/checkout@v2
+
+    
+    - name: Sync
+      env:
+        dest: './myfile'
+      run: |
+        rsync 
+          --exclude /.git/ \
+          --exclude /.github/ \
+          ./ ${{env.dest}}
+
       
     
       
