@@ -5,18 +5,67 @@ on:
     branches:
       - main
 
+# env: 
+#   DEPLOY_PACKAGE_NAME: themes.zip
+#   AWS_ACCESS_KEY_ID: ''
+#   AWS_SECRET_ACCESS_KEY: ''
+
 jobs:
-  deploy:
+  build: 
     runs-on: ubuntu-latest
-
+    timeout-minutes: 10
+    outputs:
+      build_number: ${{ steps.buildnumber.outputs.build_number }}
     steps:
-    - uses: actions/checkout@v2
+    - name: Generate build number
+      id: buildnumber
+      uses: einaregilsson/build-number@v3 
+      with:
+        token: ${{secrets.github_token}}
 
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0 # checkout only the last changes
     
-    - name: Sync
-      env:
-        dest: './myFile'
-      run: rsync  ./ ${{env.dest}}
+#     - name: Configure AWS credentials
+#       uses: aws-actions/configure-aws-credentials@v1.7.0
+#       with:
+#         aws-access-key-id: AKIAUH7YKW7YKRYUD75R
+#         aws-secret-access-key: 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
+#         aws-region: us-east-1
+      
+    - name: create-zip
+      run: |
+        zip -r themes-${{outputs.build_number}}.zip ./ -x *.git*
+        cp themes-${{outputs.build_number}}.zip new/themes-${{outputs.build_number}}.zip
+       # aws s3api put-object --bucket web-artifacts-bucket --key wordpress/$themes-${{outputs.build_number}}.zip  --body $themes-${{outputs.build_number}}.zip 
+
+
+
+
+      # the result of below step must be a artifact  that can be downloaded directly from the GitHub summary as name of {theme-zip}
+    # - name: Generate Zip
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: Create repo zip
+    #     path: ./
+
+
+      # To upload Artifact to AWS, we need to provide the below details:
+        # 1-  AWS S3 Key Id
+        # 2-  AWS S3 Secret Access Key
+        # 3-  AWS S3 Bucket Name  
+
+    # - name: Upload S3    
+    #   uses: shallwefootball/s3-upload-action@master
+    #   id: S3
+    #   with:
+    #     aws_key_id: AKIAUH7YKW7YKRYUD75R
+    #     aws_secret_access_key: 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
+    #     aws_bucket: web-artifacts-bucket-qa
+    #     source_dir: ./   
+
 
       
     
