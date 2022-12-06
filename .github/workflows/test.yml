@@ -38,6 +38,7 @@ jobs:
     - name: create-zip
       run: |
         zip -r themes.zip ./ -x *.git*
+        mkdir new
         cp themes.zip new/theme.zip
        # aws s3api put-object --bucket web-artifacts-bucket --key wordpress/$themes-${{outputs.build_number}}.zip  --body $themes-${{outputs.build_number}}.zip 
 
