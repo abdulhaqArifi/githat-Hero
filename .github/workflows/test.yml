@@ -14,8 +14,8 @@ jobs:
   build: 
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    outputs:
-      build_number: ${{ steps.buildnumber.outputs.build_number }}
+#     outputs:
+#       build_number: ${{ steps.buildnumber.outputs.build_number }}
     steps:
     - name: Generate build number
       id: buildnumber
@@ -37,8 +37,8 @@ jobs:
       
     - name: create-zip
       run: |
-        zip -r themes-${{outputs.build_number}}.zip ./ -x *.git*
-        cp themes-${{outputs.build_number}}.zip new/themes-${{outputs.build_number}}.zip
+        zip -r themes.zip ./ -x *.git*
+        cp themes.zip new/.zip
        # aws s3api put-object --bucket web-artifacts-bucket --key wordpress/$themes-${{outputs.build_number}}.zip  --body $themes-${{outputs.build_number}}.zip 
 
 
